@@ -1,4 +1,14 @@
-﻿main{
+﻿@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+
+.title{
+    text-align: center;
+    position: absolute;
+    font-family: 'Raleway', sans-serif;
+    top: 330px;
+    left: 42%;
+}
+
+main{
     position: relative;
     margin: 0 auto;
     width: 570px;
