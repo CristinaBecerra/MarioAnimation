@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Ejercicio Mario</title>
+</head>
+<body>
+    <main>
+        <img id="mario" src="images/mario.png" alt="Figura de mario">
+        <img id="star" src="images/star.png">
+        <img id="pumba" src="images/pumba.png">
+        <img id="koopa" src="images/koopa.gif">
+
+        <div class="entorno"></div>
+        <div class="suelo"></div>
+    </main>
+    <script>
+        document.body.addEventListener("keypress",muevePersonaje);
+        let marioImg = document.getElementById("mario");
+
+        function muevePersonaje(evento) {
+            let letraPuls = String.fromCharCode(evento.charCode);
+            if(letraPuls == 'd'){
+                marioImg.style.animationPlayState = 'running';
+                star.style.animationPlayState = 'running';
+                pumba.style.animationPlayState = 'running';
+            }else if(letraPuls == 'a'){
+                marioImg.style.animationPlayState = 'paused';
+                star.style.animationPlayState = 'paused';
+                pumba.style.animationPlayState = 'paused';
+            }
+        }
+    </script>
+</body>
+</html>

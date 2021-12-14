@@ -1,0 +1,207 @@
+﻿main{
+    position: relative;
+    margin: 0 auto;
+    width: 570px;
+    height: 300px;
+    border: 4px solid brown;
+    background: rgb(112, 112, 209) url(images/f03.png) repeat-x; 
+    animation: nubes 1s ease-in-out alternate infinite;
+    overflow: hidden;
+}
+
+.entorno, img#mario, img#star, img#pumba, img#koopa{
+    position: absolute;
+
+}
+
+.entorno{
+    top: 187px;
+    width: 239px;
+    height: 113px;
+    background-image: url(images/f02.png);
+}
+
+img#mario{
+    width: 16px;
+    z-index: 999;
+    top: 207px;
+    left: 177px;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    animation: aparece 1s ease-in 1,
+        saltaTunel 0.5s linear 2s 2,
+        salta-derecha 1s linear 3s 1 forwards,
+        salta .5s linear 5s 1,
+        mueve-salta 1s linear 4s 1 forwards,
+        mueve-derecha 3s linear 5s forwards,
+        efectoEstrella 1s infinite 6s;
+}
+
+img#star{
+    width: 25px;
+    top: 265px;
+    left: 423px;
+    animation: name duration timing-function delay iteration-count direction fill-mode;
+    animation: star 1s linear 10 alternate,
+            starTaken 1s steps(1) 5.3s forwards;
+}
+
+img#pumba{
+    top: 266px;
+    left: 376px;
+    animation: muevePumba 5s linear 1 forwards,
+                muerePumba 1s linear 1 4s forwards;
+}
+
+img#koopa{
+    width: 60px;
+    left: -100px;
+    top: 100px;
+    animation:  mueveKoopa 10s linear;
+}
+
+.suelo{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 14px;
+    background: url(images/f01.png) repeat-x;
+}
+
+
+/*....................Animaciones...................... */
+/* .....Nubes......... */
+@keyframes nubes{
+    from{ background-position-y: 0;}
+    to{ background-position-y: 20px;}
+}
+
+/* .........Mario..... */
+@keyframes aparece{
+    from{top: 220px;
+        opacity: 0;
+    }
+    50%{
+        top: 210px;
+        opacity: 0.5;
+    }
+    to{top: 207px;
+        opacity: 1;
+    }
+}
+
+@keyframes saltaTunel{
+    from{top: 207px;}
+    50%{top: 160px;}
+    to{top: 207px}
+}
+
+@keyframes salta-derecha{
+    from{top: 207px;}
+    50%{top: 160px;
+        left: 200px;}
+    to{top: 255px;
+        left: 230px}
+}
+
+@keyframes mueve-salta{
+    from{top: 255px;
+        left: 230px}
+    
+    30%{top: 255px;
+        left: 250px;}
+
+    45%{top: 200px;
+        left: 270px;}
+        
+    56%{top: 245px;
+        left: 285px;}
+
+    80%{
+        top: 225px;
+        left: 285px;}    
+
+    100%{
+        top: 255px;
+        left: 285px;
+    }   
+}
+@keyframes mueve-derecha{
+    from{
+        left: 285px;
+    }
+    to{
+        left: 600px;
+    }
+}
+
+@keyframes efectoEstrella{
+    from{filter: hue-rotate(0deg);}
+    to{filter: hue-rotate(360deg);}
+}
+
+/*........ESTRELLA............... */
+@keyframes star{
+    from{
+        transform: rotate(0);
+    }
+    to{
+        transform: rotateY(360deg);
+    }
+}
+
+@keyframes starTaken{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+/*.......PUMBA................ */
+@keyframes muevePumba{
+    from{
+        left: 376px;
+    }
+    to{
+       left: 280px;
+    }
+}
+
+@keyframes muerePumba{
+    from{
+        transform: rotateY(0);
+        opacity: 1;
+    }
+    50%{
+        transform: rotateY(0);
+        opacity: 1;
+    }
+    to{
+        transform: rotateY(90deg);
+        opacity: 0;
+    }
+}
+
+/* .....Koopa............................ */
+@keyframes mueveKoopa{
+    from{
+        left: -50px;
+        transform: rotateY(0);
+    }
+    
+    50%{
+        left: 95px;
+        transform: rotateY(0);
+    }
+
+    60%{
+        left: 100px;
+        transform: rotateY(180deg);
+    }
+
+    100%{
+        left: -50px;
+        transform: rotateY(180deg);
+    }
+}
